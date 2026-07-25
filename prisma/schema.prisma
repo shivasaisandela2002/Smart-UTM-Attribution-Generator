@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model SavedLink {
+  id        String   @id @default(uuid())
+  baseUrl   String
+  source    String?
+  medium    String?
+  campaign  String?
+  term      String?
+  content   String?
+  fullUrl   String
+  shortId   String   @unique
+  clicks    Int      @default(0)
+  createdAt DateTime @default(now())
+}
